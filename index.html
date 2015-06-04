@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+<ul class="nav">
+    <li class="cur"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <span class="float"></span>
+</ul>
+<h1>渣渣伟，你是猪吗？</h1>
+
+<script type="text/javascript" src="script/jquery-1.11.1.min.js"></script>
+<script>
+    var index=0;
+    $(".nav li").click(function(){
+        index=$(".nav li").index(this);
+        $(".nav li").eq(index).addClass("cur").siblings(".nav li").removeClass("cur");
+        $(".float").stop(true).animate({"left":(index*($(".nav li").width()+4))+"px"},400);
+    });
+    $(".nav li").mouseover(function(){
+        $(".float").stop(true).animate({"left":($(".nav li").index(this)*($(".nav li").width()+4))+"px"},400);
+    })
+    $(".nav li").mouseleave(function(){
+        $(".float").stop(true).animate({"left":(index*($(".nav li").width()+4))+"px"},400);
+    })
+</script>
+</body>
+</html>
